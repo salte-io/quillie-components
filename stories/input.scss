@@ -1,0 +1,33 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.input {
+  @include hover();
+
+  position: relative;
+  min-width: 400px;
+  overflow: hidden;
+
+  border-radius: $border-radius;
+  min-height: $min-component-size;
+  background-color: $secondary-accent;
+  color: $primary-accent;
+
+  input {
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    background: transparent;
+    height: $min-component-size;
+    width: 100%;
+    color: inherit;
+    font-size: $font-size;
+
+    padding: 0 $border-radius;
+
+    &::placeholder {
+      color: $disabled;
+    }
+  }
+}

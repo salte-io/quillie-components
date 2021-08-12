@@ -1,0 +1,36 @@
+@use './variables' as *;
+
+@mixin absolute($offset: 0) {
+  position: absolute;
+  top: #{0 + $offset};
+  bottom: #{0 + $offset};
+  left: #{0 + $offset};
+  right: #{0 + $offset};
+}
+
+@mixin hover() {
+  &::before {
+    @include absolute(0);
+    @include transition(opacity);
+
+    pointer-events: none;
+    content: '';
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@mixin disabled() {
+  color: $primary-accent;
+  background-color: $disabled;
+  pointer-events: none;
+}
+
+@mixin transition($properties...) {
+  transition: 0.15s ease-in-out;
+  transition-property: $properties;
+}

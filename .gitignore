@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+*.css.json
+*.scss.json
+.parcel-cache/
+lib/
+storybook-static/
