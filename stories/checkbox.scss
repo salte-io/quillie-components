@@ -1,0 +1,31 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.checkbox {
+  @include hover();
+
+  position: relative;
+  width: $min-component-size;
+  height: $min-component-size;
+  background-color: $secondary-accent;
+  border-radius: $border-radius;
+  cursor: pointer;
+  overflow: hidden;
+
+  .check {
+    @include absolute(4px);
+    @include transition(transform);
+
+    background-color: $primary-accent;
+    border-radius: inherit;
+    transform: scale(0);
+  }
+
+  &.checked .check {
+    transform: scale(1);
+  }
+
+  &.disabled {
+    @include disabled();
+  }
+}

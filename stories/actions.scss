@@ -1,0 +1,17 @@
+@use './variables' as *;
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.primary, .secondary {
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  gap: 5px;
+}
+
+.primary {
+  justify-self: end;
+}

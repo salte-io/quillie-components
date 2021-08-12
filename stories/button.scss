@@ -1,0 +1,79 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+@mixin button($color, $background-color) {
+  &:not(.inverse) {
+    color: $color;
+    background-color: $background-color;
+
+    &:hover {
+      color: $background-color;
+      background-color: $color;
+    }
+  }
+
+  &.inverse {
+    color: $background-color;
+    background-color: $color;
+
+    &:hover {
+      color: $color;
+      background-color: $background-color;
+    }
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.button {
+  @include transition(color, background-color);
+
+  position: relative;
+
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+  gap: 5px;
+  align-items: center;
+
+  min-height: $min-component-size;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border: 0;
+  border-radius: $border-radius;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 10px;
+  outline: none;
+
+  &:not(.disabled) {
+    &.primary {
+      @include button($secondary, $primary);
+    }
+
+    &.secondary {
+      @include button($primary-accent, $secondary);
+    }
+
+    &.accent {
+      @include button($secondary, $primary-accent);
+    }
+  }
+
+  &.disabled {
+    @include disabled();
+  }
+
+  > .content {
+    @include transition(opacity);
+
+    opacity: 1;
+  }
+
+  &.loading > .content {
+    opacity: 0;
+  }
+}
