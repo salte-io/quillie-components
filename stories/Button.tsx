@@ -7,6 +7,7 @@ import { Spinner } from './Spinner';
 export interface ButtonProps {
   [key: string]: any;
   children: ReactNode;
+  className?: string;
   disabled?: boolean;
   inverse?: boolean;
   loading?: boolean;
@@ -20,6 +21,7 @@ export interface ButtonProps {
  */
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
+  className,
   disabled = false,
   inverse = false,
   loading = false,
@@ -39,6 +41,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
         isDisabled && styles.disabled,
         loading && styles.loading,
         inverse && styles.inverse,
+        className,
       )}
       onClick={() => {
         if (!isDisabled) onClick()
