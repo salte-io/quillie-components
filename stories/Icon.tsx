@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
@@ -14,10 +15,12 @@ export const ICON_MAP = {
 };
 
 export interface IconProps {
+  className?: string;
   icon: keyof typeof ICON_MAP;
 }
 
 export const Icon: FunctionComponent<IconProps> = ({
+  className,
   icon,
   ...props
 }: IconProps) => {
@@ -25,7 +28,10 @@ export const Icon: FunctionComponent<IconProps> = ({
 
   return (
     <MappedIcon
-      className={styles.icon}
+      className={classNames(
+        styles.icon,
+        className,
+      )}
       {...props}
     />
   )

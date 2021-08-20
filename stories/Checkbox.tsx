@@ -8,6 +8,8 @@ export interface CheckboxProps {
    */
   checked?: boolean;
 
+  className?: string;
+
   /**
    * Disables the component.
    */
@@ -21,6 +23,7 @@ export interface CheckboxProps {
 
 export const Checkbox: FunctionComponent<CheckboxProps> = ({
   checked = false,
+  className,
   disabled = false,
   onChange,
 }: CheckboxProps) => {
@@ -41,6 +44,7 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
         styles.checkbox,
         internallyChecked && styles.checked,
         disabled && styles.disabled,
+        className,
       )}
       onClick={updateValue}
     >
