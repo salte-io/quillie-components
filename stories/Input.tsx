@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import React, { ChangeEventHandler, FunctionComponent, useEffect, useState } from 'react';
-import styles from './input.scss';
+import styles from './Input.scss';
 
 export interface InputProps {
+  className?: string,
   value?: string;
   placeholder?: string;
 
@@ -13,6 +14,7 @@ export interface InputProps {
 }
 
 export const Input: FunctionComponent<InputProps> = ({
+  className,
   value,
   placeholder,
   onChange,
@@ -31,7 +33,8 @@ export const Input: FunctionComponent<InputProps> = ({
   return (
     <div
       className={classNames(
-        styles.input
+        styles.input,
+        className,
       )}
     >
       <input

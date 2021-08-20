@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, ReactNode } from 'react';
-import styles from './card.scss';
+import styles from './Card.scss';
 import { Layout } from './constants';
 import { Grid } from './Grid';
 
