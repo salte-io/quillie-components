@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { FunctionComponent, ReactNode } from 'react';
 import styles from './card.scss';
 import { Layout } from './constants';
+import { Grid } from './Grid';
 
 export interface CardProps {
   children?: ReactNode;
@@ -16,15 +17,15 @@ export const Card: FunctionComponent<CardProps> = ({
   ...props
 }: CardProps) => {
   return (
-    <div
+    <Grid
       className={classNames(
         styles.card,
-        styles[layout],
         className
       )}
+      layout={layout}
       {...props}
     >
       {children}
-    </div>
+    </Grid>
   );
 };

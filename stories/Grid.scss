@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+
+  &.horizontal {
+    grid-auto-columns: min-content;
+    grid-auto-flow: column;
+  }
+
+  &.vertical {
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+  }
+}

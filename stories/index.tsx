@@ -5,3 +5,4 @@ export { Card } from './Card';
 export { Checkbox } from './Checkbox';
 export { Icon } from './Icon';
 export { Input } from './Input';
+export { Grid } from './Grid';
