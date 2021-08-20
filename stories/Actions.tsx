@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
-import styles from './actions.scss';
+import styles from './Actions.scss';
 
 export interface ActionsProps {
   primary?: ReactNode;

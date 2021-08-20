@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
 import { MdDelete } from 'react-icons/md';
-import styles from './icon.scss';
+import styles from './Icon.scss';
 
 export const ICON_MAP = {
   plus: GoPlus,

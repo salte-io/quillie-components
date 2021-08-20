@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { Component, FunctionComponent, ReactNode } from 'react';
-import styles from './button.scss';
+import styles from './Button.scss';
 import { Theme } from './constants';
 import { Spinner } from './Spinner';
 
