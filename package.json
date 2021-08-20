@@ -25,7 +25,6 @@
     "build:storybook": "build-storybook",
     "lint": "eslint stories/**/*.tsx",
     "start": "start-storybook -p 6006",
-    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release"
   },
   "license": "MIT",
