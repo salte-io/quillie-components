@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
+import { UpdateOn } from './constants';
 import styles from './Input.scss';
 
 export interface InputProps {
@@ -12,6 +13,8 @@ export interface InputProps {
    */
   onChange?: (value: string) => void;
   onBlur?: (value: string) => void;
+
+  updateOn?: UpdateOn;
 }
 
 export function Input({
@@ -19,7 +22,7 @@ export function Input({
   value,
   placeholder,
   onChange,
-  onBlur,
+  updateOn = UpdateOn.Blur,
 }: InputProps): JSX.Element {
   const [internalValue, setInternalValue] = useState<string>();
 
@@ -45,13 +48,13 @@ export function Input({
       <input
         placeholder={placeholder}
         value={internalValue || ''}
-        onBlur={(event) => updateValue(event, onBlur)}
-        onChange={(event) => updateValue(event, onChange)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter') {
-            updateValue(event, onBlur);
-          }
-        }}
+        onBlur={updateOn === UpdateOn.Blur ? (event) => updateValue(event, onChange) : null}
+        onInput={updateOn === UpdateOn.Input ? (event) => updateValue(event, onChange) : null}
+        onKeyDown={updateOn === UpdateOn.Blur ? (event) => {
+          if (event.key !== 'Enter') return;
+
+          updateValue(event, onChange);
+        } : null}
       />
     </div>
   );
