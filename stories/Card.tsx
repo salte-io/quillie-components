@@ -34,7 +34,7 @@ export function Card({
         )}
         layout={layout}
       >
-        {children}
+        {!loading && children}
       </Grid>
       <Spinner
         className={styles.spinner}
