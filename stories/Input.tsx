@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ChangeEventHandler, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Input.scss';
 
 export interface InputProps {
@@ -10,7 +10,8 @@ export interface InputProps {
   /**
    * Invoked when the checkbox checked value is modified internally.
    */
-  onChange?: (change: string) => void;
+  onChange?: (value: string) => void;
+  onBlur?: (value: string) => void;
 }
 
 export function Input({
@@ -18,6 +19,7 @@ export function Input({
   value,
   placeholder,
   onChange,
+  onBlur,
 }: InputProps): JSX.Element {
   const [internalValue, setInternalValue] = useState<string>();
 
@@ -25,9 +27,9 @@ export function Input({
     setInternalValue(value);
   }, [value]);
 
-  const updateValue: ChangeEventHandler<HTMLInputElement> = (event) => {
+  const updateValue = (event, fn: (value: string) => void) => {
     setInternalValue(event.target.value);
-    if (onChange) onChange(internalValue);
+    if (fn) fn(internalValue);
   }
 
   return (
@@ -40,7 +42,8 @@ export function Input({
       <input
         placeholder={placeholder}
         value={internalValue || ''}
-        onChange={updateValue}
+        onBlur={(event) => updateValue(event, onBlur)}
+        onChange={(event) => updateValue(event, onChange)}
       />
     </div>
   );
