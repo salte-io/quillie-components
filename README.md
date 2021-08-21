@@ -40,8 +40,8 @@ _These are issues that we know about, but don't have a clear fix for!_
 [npm-downloads-image]: https://img.shields.io/npm/dm/@salte-io/quillie-components.svg?style=flat
 [npm-url]: https://npmjs.org/package/@salte-io/quillie-components
 
-[github-actions-image]: https://github.com/salte-io/quillie-components/actions/workflows/ci.yml/badge.svg?branch=main
-[github-actions-url]: https://github.com/salte-io/quillie-components/actions/workflows/ci.yml
+[github-actions-image]: https://github.com/salte-io/quillie-components/actions/workflows/CI.yml/badge.svg?branch=main
+[github-actions-url]: https://github.com/salte-io/quillie-components/actions/workflows/CI.yml
 
 [coveralls-image]: https://img.shields.io/coveralls/salte-io/quillie-components.svg
 [coveralls-url]: https://coveralls.io/github/salte-io/quillie-components?branch=main
