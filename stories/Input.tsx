@@ -38,8 +38,8 @@ export const Input: FunctionComponent<InputProps> = ({
       )}
     >
       <input
-        value={internalValue || ''}
         placeholder={placeholder}
+        value={internalValue || ''}
         onChange={updateValue}
       />
     </div>

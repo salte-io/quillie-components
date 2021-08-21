@@ -1,32 +1,46 @@
 import classNames from 'classnames';
 import React, { FunctionComponent, ReactNode } from 'react';
-import { Layout } from './constants';
+import { Component } from 'react';
+import { AlignItems, JustifyContent, Layout } from './constants';
 
 import styles from './Grid.scss';
 
 export interface GridProps {
+  [key: string]: any;
+  alignItems?: AlignItems;
+  justifyContent?: JustifyContent;
   children: ReactNode;
   className?: string;
   layout?: Layout;
-  spacing?: number;
+  gap?: number;
+  type?: string | FunctionComponent | typeof Component;
 }
 
 export const Grid: FunctionComponent<GridProps> = ({
+  alignItems,
+  justifyContent,
   children,
   className,
   layout = Layout.Vertical,
-  spacing = 10,
+  gap = 10,
+  type: Type = 'div',
+  ...props
 }: GridProps) => {
   return (
-    <div
+    <Type
       className={classNames(
         styles.grid,
         styles[layout],
         className,
       )}
-      style={{ gap: `${spacing}px` }}
+      style={{
+        alignItems,
+        gap: `${gap}px`,
+        justifyContent,
+      }}
+      {...props}
     >
       {children}
-    </div>
+    </Type>
   );
 };
