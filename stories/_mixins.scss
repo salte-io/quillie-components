@@ -35,14 +35,24 @@
   transition-property: $properties;
 }
 
-@mixin loading() {
+@mixin loading($visibleWhenLoading: false) {
   @include transition(opacity);
 
-  &:not(.loading) {
-    opacity: 1;
-  }
+  @if $visibleWhenLoading {
+    &:not(.loading) {
+      opacity: 0;
+    }
 
-  &.loading {
-    opacity: 0;
+    &.loading {
+      opacity: 1;
+    }
+  } @else {
+    &:not(.loading) {
+      opacity: 1;
+    }
+
+    &.loading {
+      opacity: 0;
+    }
   }
 }
