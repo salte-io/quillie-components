@@ -24,12 +24,14 @@ export function Card({
       className={classNames(
         styles.card,
         loading && styles.loading,
-        className
       )}
       {...props}
     >
       <Grid
-        className={styles.content}
+        className={classNames(
+          styles.content,
+          className,
+        )}
         layout={layout}
       >
         {children}
