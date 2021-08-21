@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Checkbox.scss';
 
 export interface CheckboxProps {
@@ -21,12 +21,12 @@ export interface CheckboxProps {
   onChange?: (change: boolean) => void;
 }
 
-export const Checkbox: FunctionComponent<CheckboxProps> = ({
+export function Checkbox({
   checked = false,
   className,
   disabled = false,
   onChange,
-}: CheckboxProps) => {
+}: CheckboxProps): JSX.Element {
   const [internallyChecked, setInternallyChecked] = useState<boolean>(false);
 
   useEffect(() => {
@@ -51,4 +51,4 @@ export const Checkbox: FunctionComponent<CheckboxProps> = ({
       <div className={styles.check} />
     </div>
   );
-};
+}

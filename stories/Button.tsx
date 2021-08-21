@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { Component, FunctionComponent, ReactNode } from 'react';
+import React, { ElementType, ReactNode } from 'react';
 import styles from './Button.scss';
 import { AlignItems, Layout, Theme } from './constants';
 import { Grid } from './Grid';
@@ -14,13 +14,13 @@ export interface ButtonProps {
   loading?: boolean;
   onClick?: () => void;
   theme?: Theme;
-  type?: string | FunctionComponent | typeof Component;
+  type?: ElementType;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Button: FunctionComponent<ButtonProps> = ({
+export function Button({
   children,
   className,
   disabled = false,
@@ -30,7 +30,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   theme = Theme.Primary,
   type: Type = 'button',
   ...props
-}: ButtonProps) => {
+}: ButtonProps): JSX.Element {
   const isDisabled = disabled || loading;
 
   return (
@@ -61,4 +61,4 @@ export const Button: FunctionComponent<ButtonProps> = ({
       <Spinner loading={loading} />
     </Type>
   );
-};
+}

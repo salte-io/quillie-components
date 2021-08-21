@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ChangeEventHandler, FunctionComponent, useEffect, useState } from 'react';
+import React, { ChangeEventHandler, useEffect, useState } from 'react';
 import styles from './Input.scss';
 
 export interface InputProps {
@@ -13,12 +13,12 @@ export interface InputProps {
   onChange?: (change: string) => void;
 }
 
-export const Input: FunctionComponent<InputProps> = ({
+export function Input({
   className,
   value,
   placeholder,
   onChange,
-}: InputProps) => {
+}: InputProps): JSX.Element {
   const [internalValue, setInternalValue] = useState<string>();
 
   useEffect(() => {
@@ -44,4 +44,4 @@ export const Input: FunctionComponent<InputProps> = ({
       />
     </div>
   );
-};
+}

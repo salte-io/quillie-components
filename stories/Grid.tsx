@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, ReactNode } from 'react';
-import { Component } from 'react';
+import React, { ElementType, ReactNode } from 'react';
 import { AlignItems, JustifyContent, Layout } from './constants';
 
 import styles from './Grid.scss';
@@ -13,10 +12,10 @@ export interface GridProps {
   className?: string;
   layout?: Layout;
   gap?: number;
-  type?: string | FunctionComponent | typeof Component;
+  type?: ElementType;
 }
 
-export const Grid: FunctionComponent<GridProps> = ({
+export function Grid({
   alignItems,
   justifyContent,
   children,
@@ -25,7 +24,7 @@ export const Grid: FunctionComponent<GridProps> = ({
   gap = 10,
   type: Type = 'div',
   ...props
-}: GridProps) => {
+}: GridProps): JSX.Element {
   return (
     <Type
       className={classNames(
@@ -43,4 +42,4 @@ export const Grid: FunctionComponent<GridProps> = ({
       {children}
     </Type>
   );
-};
+}
