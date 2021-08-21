@@ -2,17 +2,11 @@
 
 .spinner {
   @include absolute();
-  @include transition(opacity);
+  @include loading();
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  opacity: 0;
-
-  &.loading {
-    opacity: 1;
-  }
 
   &:after {
     content: '';

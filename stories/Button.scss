@@ -64,12 +64,6 @@ a.button {
   }
 
   > .content {
-    @include transition(opacity);
-
-    opacity: 1;
-  }
-
-  &.loading > .content {
-    opacity: 0;
+    @include loading();
   }
 }
