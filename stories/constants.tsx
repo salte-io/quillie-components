@@ -27,3 +27,8 @@ export enum UpdateOn {
   Input = 'input',
   Blur = 'blur',
 }
+
+export enum Keys {
+  Enter = 'Enter',
+  Tab = 'Tab',
+}

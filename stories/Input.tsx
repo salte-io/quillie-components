@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { UpdateOn } from './constants';
+import { Keys, UpdateOn } from './constants';
 import styles from './Input.scss';
 
 export interface InputProps {
@@ -12,7 +12,7 @@ export interface InputProps {
    * Invoked when the checkbox checked value is modified internally.
    */
   onChange: (value: string) => void;
-  submitKeys: string[];
+  submitKeys?: Keys[];
 
   updateOn?: UpdateOn;
 }
@@ -22,7 +22,7 @@ export function Input({
   value,
   placeholder,
   onChange,
-  submitKeys,
+  submitKeys = [Keys.Enter],
   updateOn = UpdateOn.Blur,
 }: InputProps): JSX.Element {
   const [internalValue, setInternalValue] = useState<string>();
@@ -51,7 +51,7 @@ export function Input({
           }
         }}
         onKeyDown={updateOn === UpdateOn.Blur ? (event) => {
-          if (submitKeys.includes(event.key)) {
+          if ((submitKeys as string[]).includes(event.key)) {
             onChange(internalValue);
           }
         } : null}
