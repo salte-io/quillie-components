@@ -4,6 +4,7 @@
 .card {
   @include loading(false, '> .content');
 
+  box-sizing: border-box;
   position: relative;
   border-radius: $border-radius;
   background-color: $secondary;
