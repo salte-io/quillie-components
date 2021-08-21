@@ -28,8 +28,11 @@ export function Input({
   }, [value]);
 
   const updateValue = (event, fn: (value: string) => void) => {
-    setInternalValue(event.target.value);
-    if (fn) fn(internalValue);
+    const updatedValue = event.target.value;
+    if (updatedValue === internalValue) return;
+
+    setInternalValue(updatedValue);
+    if (fn) fn(updatedValue);
   }
 
   return (
@@ -44,6 +47,11 @@ export function Input({
         value={internalValue || ''}
         onBlur={(event) => updateValue(event, onBlur)}
         onChange={(event) => updateValue(event, onChange)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            updateValue(event, onBlur);
+          }
+        }}
       />
     </div>
   );
