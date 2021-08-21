@@ -13,10 +13,12 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
   loading = false,
 }: SpinnerProps) => {
   return (
-    <div className={classNames(
-      styles.spinner,
-      loading && styles.loading,
-      className,
-    )} />
+    <div
+      className={classNames(
+        styles.spinner,
+        loading && styles.loading,
+        className,
+      )}
+    />
   );
 };

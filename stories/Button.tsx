@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import React, { Component, FunctionComponent, ReactNode } from 'react';
 import styles from './Button.scss';
-import { Theme } from './constants';
+import { AlignItems, Layout, Theme } from './constants';
+import { Grid } from './Grid';
 import { Spinner } from './Spinner';
 
 export interface ButtonProps {
@@ -34,7 +35,6 @@ export const Button: FunctionComponent<ButtonProps> = ({
 
   return (
     <Type
-      type='button'
       className={classNames(
         styles.button,
         styles[theme],
@@ -43,14 +43,21 @@ export const Button: FunctionComponent<ButtonProps> = ({
         inverse && styles.inverse,
         className,
       )}
+      layout={Layout.Horizontal}
+      type={'button'}
       onClick={() => {
         if (!isDisabled) onClick()
       }}
       {...props}
     >
-      <div className={styles.content}>
+      <Grid
+        alignItems={AlignItems.Center}
+        className={styles.content}
+        gap={5}
+        layout={Layout.Horizontal}
+      >
         {children}
-      </div>
+      </Grid>
       <Spinner loading={loading} />
     </Type>
   );

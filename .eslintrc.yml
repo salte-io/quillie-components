@@ -24,3 +24,12 @@ rules:
     - always
   no-unused-vars: off
   '@typescript-eslint/no-unused-vars': error
+  react/jsx-sort-props:
+    - error
+    - callbacksLast: true
+      ignoreCase: true
+      noSortAlphabetically: false
+      reservedFirst: true
+  react/jsx-closing-bracket-location:
+    - error
+    - line-aligned
