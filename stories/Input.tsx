@@ -12,6 +12,7 @@ export interface InputProps {
    * Invoked when the checkbox checked value is modified internally.
    */
   onChange: (value: string) => void;
+  submitKeys: string[];
 
   updateOn?: UpdateOn;
 }
@@ -21,6 +22,7 @@ export function Input({
   value,
   placeholder,
   onChange,
+  submitKeys,
   updateOn = UpdateOn.Blur,
 }: InputProps): JSX.Element {
   const [internalValue, setInternalValue] = useState<string>();
@@ -49,9 +51,9 @@ export function Input({
           }
         }}
         onKeyDown={updateOn === UpdateOn.Blur ? (event) => {
-          if (event.key !== 'Enter') return;
-
-          onChange(internalValue);
+          if (submitKeys.includes(event.key)) {
+            onChange(internalValue);
+          }
         } : null}
       />
     </div>
