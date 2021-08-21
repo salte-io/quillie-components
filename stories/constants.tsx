@@ -22,3 +22,8 @@ export enum JustifyContent {
   SpaceBetween = 'space-between',
   Start = 'start',
 }
+
+export enum UpdateOn {
+  Input = 'input',
+  Blur = 'blur',
+}
