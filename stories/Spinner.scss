@@ -2,7 +2,7 @@
 
 .spinner {
   @include absolute();
-  @include loading();
+  @include loading(true);
 
   display: flex;
   align-items: center;
