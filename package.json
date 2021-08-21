@@ -21,7 +21,7 @@
     "url": "https://github.com/salte-io/quillie-components.git"
   },
   "scripts": {
-    "build": "rimraf lib && parcel build && copyfiles -f stories/_variables.scss lib",
+    "build": "rimraf lib && parcel build && copyfiles -f stories/_variables.scss stories/_mixins.scss lib",
     "build:storybook": "build-storybook",
     "lint": "eslint stories/**/*.tsx",
     "start": "start-storybook -p 6006",

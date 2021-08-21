@@ -34,3 +34,15 @@
   transition: 0.15s ease-in-out;
   transition-property: $properties;
 }
+
+@mixin loading() {
+  @include transition(opacity);
+
+  &:not(.loading) {
+    opacity: 1;
+  }
+
+  &.loading {
+    opacity: 0;
+  }
+}
