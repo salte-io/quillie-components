@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import styles from './Spinner.scss';
 
@@ -8,10 +8,10 @@ export interface SpinnerProps {
   loading?: boolean;
 }
 
-export const Spinner: FunctionComponent<SpinnerProps> = ({
+export function Spinner({
   className,
   loading = false,
-}: SpinnerProps) => {
+}: SpinnerProps): JSX.Element {
   return (
     <div
       className={classNames(
@@ -21,4 +21,4 @@ export const Spinner: FunctionComponent<SpinnerProps> = ({
       )}
     />
   );
-};
+}

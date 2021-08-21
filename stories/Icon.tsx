@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
 import { MdDelete } from 'react-icons/md';
@@ -19,11 +19,11 @@ export interface IconProps {
   icon: keyof typeof ICON_MAP;
 }
 
-export const Icon: FunctionComponent<IconProps> = ({
+export function Icon({
   className,
   icon,
   ...props
-}: IconProps) => {
+}: IconProps): JSX.Element {
   const MappedIcon = ICON_MAP[icon];
 
   return (
@@ -35,4 +35,4 @@ export const Icon: FunctionComponent<IconProps> = ({
       {...props}
     />
   )
-};
+}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import styles from './Actions.scss';
 
@@ -7,10 +7,10 @@ export interface ActionsProps {
   secondary?: ReactNode;
 }
 
-export const Actions: FunctionComponent<ActionsProps> = ({
+export function Actions({
   primary,
   secondary,
-}: ActionsProps) => {
+}: ActionsProps): JSX.Element {
   return (
     <div className={styles.actions}>
       {secondary && (
@@ -21,4 +21,4 @@ export const Actions: FunctionComponent<ActionsProps> = ({
       )}
     </div>
   );
-};
+}
