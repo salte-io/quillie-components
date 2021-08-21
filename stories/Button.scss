@@ -30,10 +30,9 @@ a.button {
 .button {
   @include transition(color, background-color);
 
+  display: inline-block;
+  white-space: nowrap;
   position: relative;
-
-  gap: 5px;
-  align-items: center;
 
   min-height: $min-component-size;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;

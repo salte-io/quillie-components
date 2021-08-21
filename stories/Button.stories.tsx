@@ -50,7 +50,7 @@ WithIcon.args = {
   children: (
     <>
       <Icon icon='plus'/>
-      <div>Test</div>
+      <div>Test with lots of text</div>
     </>
   ),
   theme: Theme.Primary,
