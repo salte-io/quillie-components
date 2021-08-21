@@ -10,7 +10,7 @@ export interface GridProps {
   justifyContent?: JustifyContent;
   children: ReactNode;
   className?: string;
-  layout?: Layout;
+  layout: Layout;
   gap?: number;
   type?: ElementType;
 }
@@ -20,7 +20,7 @@ export function Grid({
   justifyContent,
   children,
   className,
-  layout = Layout.Vertical,
+  layout,
   gap = 10,
   type: Type = 'div',
   ...props
