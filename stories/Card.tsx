@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import styles from './Card.scss';
 import { Layout } from './constants';
-import { Grid } from './Grid';
+import { Gap, Grid } from './Grid';
 import { Spinner } from './Spinner';
 
 export interface CardProps {
@@ -11,6 +11,7 @@ export interface CardProps {
   className?: string;
   layout?: Layout;
   loading?: boolean;
+  gap?: number | Gap;
 }
 
 export function Card({
@@ -18,6 +19,7 @@ export function Card({
   className,
   layout = Layout.Vertical,
   loading = false,
+  gap,
   ...props
 }: CardProps): JSX.Element {
   return (
@@ -33,6 +35,7 @@ export function Card({
           styles.content,
           className,
         )}
+        gap={gap}
         layout={layout}
       >
         {children}
