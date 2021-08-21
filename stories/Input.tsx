@@ -11,8 +11,7 @@ export interface InputProps {
   /**
    * Invoked when the checkbox checked value is modified internally.
    */
-  onChange?: (value: string) => void;
-  onBlur?: (value: string) => void;
+  onChange: (value: string) => void;
 
   updateOn?: UpdateOn;
 }
@@ -30,14 +29,6 @@ export function Input({
     setInternalValue(value);
   }, [value]);
 
-  const updateValue = (event, fn: (value: string) => void) => {
-    const updatedValue = event.target.value;
-    if (updatedValue === internalValue) return;
-
-    setInternalValue(updatedValue);
-    if (fn) fn(updatedValue);
-  }
-
   return (
     <div
       className={classNames(
@@ -48,12 +39,19 @@ export function Input({
       <input
         placeholder={placeholder}
         value={internalValue || ''}
-        onBlur={updateOn === UpdateOn.Blur ? (event) => updateValue(event, onChange) : null}
-        onInput={updateOn === UpdateOn.Input ? (event) => updateValue(event, onChange) : null}
+        onBlur={updateOn === UpdateOn.Blur ? () => onChange(internalValue) : null}
+        onChange={(event) => {
+          const updatedValue = event.target.value;
+          setInternalValue(updatedValue);
+
+          if (updateOn === UpdateOn.Input) {
+            onChange(updatedValue);
+          }
+        }}
         onKeyDown={updateOn === UpdateOn.Blur ? (event) => {
           if (event.key !== 'Enter') return;
 
-          updateValue(event, onChange);
+          onChange(internalValue);
         } : null}
       />
     </div>
