@@ -6,6 +6,7 @@ import { Grid } from './Grid';
 import { Spinner } from './Spinner';
 
 export interface CardProps {
+  [key: string]: any;
   children?: ReactNode;
   className?: string;
   layout?: Layout;
