@@ -34,8 +34,9 @@ export function Checkbox({
   }, [checked]);
 
   const updateValue = () => {
-    setInternallyChecked(!internallyChecked);
-    if (onChange) onChange(internallyChecked);
+    const updatedChecked = !internallyChecked;
+    setInternallyChecked(updatedChecked);
+    if (onChange) onChange(updatedChecked);
   }
 
   return (
