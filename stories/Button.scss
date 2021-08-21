@@ -63,4 +63,8 @@ a.button {
   &.disabled {
     @include disabled();
   }
+
+  > .content {
+    height: 100%;
+  }
 }
