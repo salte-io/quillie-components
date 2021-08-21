@@ -4,6 +4,11 @@ import { AlignItems, JustifyContent, Layout } from './constants';
 
 import styles from './Grid.scss';
 
+export interface Gap {
+  row: number;
+  column: number;
+}
+
 export interface GridProps {
   [key: string]: any;
   alignItems?: AlignItems;
@@ -11,7 +16,7 @@ export interface GridProps {
   children: ReactNode;
   className?: string;
   layout: Layout;
-  gap?: number;
+  gap?: number | Gap;
   type?: ElementType;
 }
 
@@ -25,6 +30,13 @@ export function Grid({
   type: Type = 'div',
   ...props
 }: GridProps): JSX.Element {
+  const normalizedGap: Gap = typeof(gap) === 'number' ? {
+    column: gap,
+    row: gap,
+  } : {
+    column: gap.column,
+    row: gap.row,
+  };
   return (
     <Type
       className={classNames(
@@ -34,7 +46,8 @@ export function Grid({
       )}
       style={{
         alignItems,
-        gap: `${gap}px`,
+        columnGap: `${normalizedGap.column}px`,
+        rowGap: `${normalizedGap.row}px`,
         justifyContent,
       }}
       {...props}
