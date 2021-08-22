@@ -52,6 +52,8 @@ export function Input({
         }}
         onKeyDown={updateOn === UpdateOn.Blur ? (event) => {
           if ((submitKeys as string[]).includes(event.key)) {
+            event.preventDefault();
+
             onChange(internalValue);
           }
         } : null}
