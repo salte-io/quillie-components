@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ReactNode } from 'react';
+import React, { ElementType, ReactNode } from 'react';
 import styles from './Card.scss';
 import { Layout } from './constants';
 import { Gap, Grid } from './Grid';
@@ -12,6 +12,7 @@ export interface CardProps {
   layout?: Layout;
   loading?: boolean;
   gap?: number | Gap;
+  type?: ElementType;
 }
 
 export function Card({
@@ -20,12 +21,14 @@ export function Card({
   layout = Layout.Vertical,
   loading = false,
   gap,
+  type: Type = 'div',
   ...props
 }: CardProps): JSX.Element {
   return (
-    <div
+    <Type
       className={classNames(
         styles.card,
+        props.href || props.to || props.onClick ? styles.clickable : null,
         loading && styles.loading,
       )}
       {...props}
@@ -44,6 +47,6 @@ export function Card({
         className={styles.spinner}
         loading={loading}
       />
-    </div>
+    </Type>
   );
 }

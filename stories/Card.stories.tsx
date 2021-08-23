@@ -68,3 +68,22 @@ Horizontal.args = {
   ),
   layout: Layout.Horizontal,
 };
+
+export const Clickable = Template.bind({});
+Clickable.args = {
+  children: (
+    <div>Some Content</div>
+  ),
+  layout: Layout.Vertical,
+  onClick: () => ({}),
+};
+
+export const LinkClickable = Template.bind({});
+LinkClickable.args = {
+  children: (
+    <div>Some Content</div>
+  ),
+  layout: Layout.Vertical,
+  type: 'a',
+  href: 'https://google.com',
+};
