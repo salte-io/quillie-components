@@ -26,6 +26,7 @@ export function Favorite({
         internallyChecked && styles.checked,
       )}
       onClick={(event) => {
+        event.preventDefault();
         event.stopPropagation();
 
         const updatedChecked = !internallyChecked;

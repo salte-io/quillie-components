@@ -40,6 +40,7 @@ export function Checkbox({
 
   const updateValue = (event) => {
     event.stopPropagation();
+    event.preventDefault();
 
     const isChecked = [Checked.Unchecked, Checked.Indeterminate].includes(internallyChecked);
     setInternallyChecked(isChecked ? Checked.Checked : Checked.Unchecked);
