@@ -19,6 +19,7 @@ export const ICON_MAP = {
 };
 
 export interface IconProps {
+  [key: string]: any;
   className?: string;
   icon: keyof typeof ICON_MAP;
 }

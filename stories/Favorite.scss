@@ -1,0 +1,64 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.favorite {
+  @include transition(color);
+
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+
+  &:not(.checked) {
+    color: $secondary-accent;
+  }
+
+  &.checked {
+    color: $primary;
+  }
+
+  > * {
+    pointer-events: none;
+  }
+
+  .pseudoHover {
+    @include absolute();
+    @include transition(color);
+
+    pointer-events: none;
+    color: transparent;
+  }
+
+  &:hover > .pseudoHover {
+    color: $hover;
+  }
+
+  .fanfare {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+
+    width: 100px;
+    height: 100px;
+
+    background-position: -2700px 0;
+    background-image: url('./assets/fanfare.png');
+    background-repeat: no-repeat;
+  }
+
+  &.checked > .fanfare {
+    animation: fanfare steps(27);
+    animation-duration: 1s;
+  }
+}
+
+
+@keyframes fanfare {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -2700px 0px;
+  }
+}
