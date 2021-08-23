@@ -58,7 +58,11 @@ export function Button({
       >
         {children}
       </Grid>
-      <Spinner loading={loading} />
+      <Spinner
+        fit
+        loading={loading}
+        theme={Theme.PrimaryAccent}
+      />
     </Type>
   );
 }

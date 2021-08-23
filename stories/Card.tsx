@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { ElementType, ReactNode } from 'react';
 import styles from './Card.scss';
-import { Layout } from './constants';
+import { Layout, Theme } from './constants';
 import { Gap, Grid } from './Grid';
 import { Spinner } from './Spinner';
 
@@ -45,7 +45,9 @@ export function Card({
       </Grid>
       <Spinner
         className={styles.spinner}
+        fit
         loading={loading}
+        theme={Theme.PrimaryAccent}
       />
     </Type>
   );

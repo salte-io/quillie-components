@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from './Button';
 
 import { Spinner, SpinnerProps } from './Spinner';
 
@@ -9,10 +8,7 @@ export default {
 };
 
 const Template = (args: SpinnerProps) => (
-  <Button disabled>
-    Hello World
-    <Spinner {...args}/>
-  </Button>
+  <Spinner {...args}/>
 );
 
 export const Simple = Template.bind({});
