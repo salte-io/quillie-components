@@ -3,6 +3,7 @@ import React from 'react';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
 import { MdDelete, MdClear } from 'react-icons/md';
+import { IoMdMegaphone, IoMdNotifications } from 'react-icons/io';
 import styles from './Icon.scss';
 
 export const ICON_MAP = {
@@ -13,6 +14,8 @@ export const ICON_MAP = {
   delete: MdDelete,
   heart: FaHeart,
   clear: MdClear,
+  feedback: IoMdMegaphone,
+  notification: IoMdNotifications,
 };
 
 export interface IconProps {
