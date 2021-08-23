@@ -47,7 +47,8 @@ a.button {
   outline: none;
 
   &:not(.disabled) {
-    &.primary {
+    &.primary,
+    &.primary-accent {
       @include button($secondary, $primary);
     }
 
@@ -55,7 +56,8 @@ a.button {
       @include button(transparent, $primary, $primary-accent);
     }
 
-    &.secondary {
+    &.secondary,
+    &.secondary-accent {
       @include button($primary-accent, $secondary);
     }
 

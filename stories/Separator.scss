@@ -1,0 +1,37 @@
+@use './variables' as *;
+
+@mixin separator($color) {
+  background-color: $color;
+}
+
+.separator {
+  width: 100%;
+
+  &:not(.thin) {
+    height: #{$min-component-size / 2};
+    border-radius: #{$min-component-size / 4};
+  }
+
+  &.thin {
+    height: #{$min-component-size / 3};
+    border-radius: #{$min-component-size / 6};
+  }
+
+  &.primary,
+  &.primary-transparent {
+    @include separator($primary);
+  }
+
+  &.primary-accent {
+    @include separator($primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include separator($secondary);
+  }
+
+  &.secondary-accent {
+    @include separator($secondary-accent);
+  }
+}
