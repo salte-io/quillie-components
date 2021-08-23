@@ -8,3 +8,4 @@ export { Input } from './Input';
 export { Grid } from './Grid';
 export { Spinner } from './Spinner';
 export { Favorite } from './Favorite';
+export { Separator } from './Separator';
