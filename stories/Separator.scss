@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use './variables' as *;
 
 @mixin separator($color) {
@@ -8,13 +9,13 @@
   width: 100%;
 
   &:not(.thin) {
-    height: #{$min-component-size / 2};
-    border-radius: #{$min-component-size / 4};
+    height: math.div($min-component-size, 2);
+    border-radius: math.div($min-component-size, 4);
   }
 
   &.thin {
-    height: #{$min-component-size / 3};
-    border-radius: #{$min-component-size / 6};
+    height: math.div($min-component-size, 3);
+    border-radius: math.div($min-component-size, 6);
   }
 
   &.primary,

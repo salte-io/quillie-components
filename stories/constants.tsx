@@ -41,3 +41,8 @@ export enum Checked {
   Indeterminate = 'indeterminate',
   Unchecked = 'unchecked',
 }
+
+export enum Alignment {
+  Right = 'right',
+  Left = 'left',
+}

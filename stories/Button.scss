@@ -6,7 +6,8 @@
     color: fallback($overrideColor, $color);
     background-color: $background-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $background-color;
       background-color: $color;
     }
@@ -16,7 +17,8 @@
     color: $background-color;
     background-color: $color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: fallback($overrideColor, $color);
       background-color: $background-color;
     }

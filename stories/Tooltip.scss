@@ -1,0 +1,34 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+.tooltip {
+  @include transition(opacity);
+
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  padding: 0 $padding;
+  height: $min-component-size;
+  border-radius: $border-radius;
+  background: $primary-accent;
+  color: $secondary;
+  box-shadow: $box-shadow;
+
+  &:not(.visible) {
+    opacity: 0;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.left {
+    left: calc(100% + #{$padding});
+  }
+
+  &.right {
+    right: calc(100% + #{$padding});
+  }
+}

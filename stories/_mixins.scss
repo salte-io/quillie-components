@@ -32,7 +32,8 @@
     opacity: 0;
   }
 
-  &:hover::before {
+  &:hover::before,
+  &:focus::before {
     opacity: 1;
   }
 }
