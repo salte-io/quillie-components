@@ -8,8 +8,12 @@
     @include hover();
   }
 
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
   display: block;
-  text-decoration: none;
   box-sizing: border-box;
   position: relative;
   border-radius: $border-radius;
