@@ -25,6 +25,7 @@
     @include absolute(0);
     @include transition(opacity);
 
+    border-radius: inherit;
     pointer-events: none;
     content: '';
     background-color: $hover;
