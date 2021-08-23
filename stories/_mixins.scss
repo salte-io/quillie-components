@@ -1,5 +1,15 @@
 @use './variables' as *;
 
+@function fallback($values...) {
+  @each $value in $values {
+    @if $value != null {
+      @return $value;
+    }
+  }
+
+  @return null;
+}
+
 @mixin absolute($offset: 0) {
   position: absolute;
   top: #{0 + $offset};
