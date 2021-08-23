@@ -1,6 +1,8 @@
 export enum Theme {
   Primary = 'primary',
   Secondary = 'secondary',
+  PrimaryAccent = 'primary-accent',
+  SecondaryAccent = 'secondary-accent',
   PrimaryTransparent = 'primary-transparent',
   SecondaryTransparent = 'secondary-transparent',
 }
