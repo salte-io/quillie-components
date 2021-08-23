@@ -4,6 +4,12 @@
 .card {
   @include loading(false, '> .content');
 
+  &.clickable {
+    @include hover();
+  }
+
+  display: block;
+  text-decoration: none;
   box-sizing: border-box;
   position: relative;
   border-radius: $border-radius;

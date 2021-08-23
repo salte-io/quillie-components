@@ -19,6 +19,8 @@
 }
 
 @mixin hover() {
+  cursor: pointer;
+
   &::before {
     @include absolute(0);
     @include transition(opacity);
