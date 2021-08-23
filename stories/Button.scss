@@ -28,8 +28,8 @@ a.button {
 }
 
 .button {
-  @include transition(color, background-color);
   @include loading(false, '> .content');
+  @include transition(color, background-color, opacity);
 
   display: inline-block;
   white-space: nowrap;
