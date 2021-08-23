@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
+import { Checked } from './constants';
 
 export default {
   title: 'Components/Checkbox',
@@ -10,6 +11,10 @@ export default {
       table:{
         disable: true,
       },
+    },
+    checked: {
+      options: Object.values(Checked),
+      control: { type: 'select' },
     },
   },
 };

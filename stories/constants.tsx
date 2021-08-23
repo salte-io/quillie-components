@@ -33,3 +33,9 @@ export enum Keys {
   Enter = 'Enter',
   Tab = 'Tab',
 }
+
+export enum Checked {
+  Checked = 'checked',
+  Indeterminate = 'indeterminate',
+  Unchecked = 'unchecked',
+}

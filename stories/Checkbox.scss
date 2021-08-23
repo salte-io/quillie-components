@@ -14,11 +14,16 @@
 
   .check {
     @include absolute(4px);
-    @include transition(transform);
+    @include transition(transform, border-radius);
 
     background-color: $primary-accent;
     border-radius: inherit;
     transform: scale(0);
+  }
+
+  &.indeterminate .check {
+    transform: scale(1, 0.5);
+    border-radius: 10px;
   }
 
   &.checked .check {

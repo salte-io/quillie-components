@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import styles from './Checkbox.scss';
+import { Checked } from './constants';
 
 export interface CheckboxProps {
   /**
    * Used to update the internal checked value.
    */
-  checked?: boolean;
+  checked?: boolean | Checked;
 
   className?: string;
 
@@ -27,23 +28,27 @@ export function Checkbox({
   disabled = false,
   onChange,
 }: CheckboxProps): JSX.Element {
-  const [internallyChecked, setInternallyChecked] = useState<boolean>(false);
+  const [internallyChecked, setInternallyChecked] = useState<Checked>(Checked.Unchecked);
 
   useEffect(() => {
-    setInternallyChecked(checked);
+    if (typeof(checked) === 'boolean') {
+      setInternallyChecked(checked ? Checked.Checked : Checked.Unchecked);
+    } else {
+      setInternallyChecked(checked);
+    }
   }, [checked]);
 
   const updateValue = () => {
-    const updatedChecked = !internallyChecked;
-    setInternallyChecked(updatedChecked);
-    if (onChange) onChange(updatedChecked);
+    const isChecked = [Checked.Unchecked, Checked.Indeterminate].includes(internallyChecked);
+    setInternallyChecked(isChecked ? Checked.Checked : Checked.Unchecked);
+    if (onChange) onChange(isChecked);
   }
 
   return (
     <div
       className={classNames(
         styles.checkbox,
-        internallyChecked && styles.checked,
+        styles[internallyChecked],
         disabled && styles.disabled,
         className,
       )}
