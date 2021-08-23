@@ -1,10 +1,21 @@
+@use './variables.scss' as *;
 @use './mixins.scss' as *;
 
+@mixin spinner($color) {
+  &:after {
+    border: 4px solid $color;
+    border-color: $color transparent $color transparent;
+  }
+}
+
 .spinner {
-  @include absolute();
   @include loading(true);
 
-  display: flex;
+  &.fit {
+    @include absolute();
+  }
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
@@ -15,9 +26,25 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 4px solid #fff;
-    border-color: #fff transparent #fff transparent;
     animation: spinner 1.2s linear infinite;
+  }
+
+  &.primary,
+  &.primary-transparent {
+    @include spinner($primary);
+  }
+
+  &.primary-accent {
+    @include spinner($primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include spinner($secondary);
+  }
+
+  &.secondary-accent {
+    @include spinner($secondary-accent);
   }
 }
 
