@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
-import { MdDelete } from 'react-icons/md';
+import { MdDelete, MdClear } from 'react-icons/md';
 import styles from './Icon.scss';
 
 export const ICON_MAP = {
@@ -12,6 +12,7 @@ export const ICON_MAP = {
   share: FaShare,
   delete: MdDelete,
   heart: FaHeart,
+  clear: MdClear,
 };
 
 export interface IconProps {
