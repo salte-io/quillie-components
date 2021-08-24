@@ -11,3 +11,4 @@ export { Favorite } from './Favorite';
 export { Separator } from './Separator';
 export { Tooltip } from './Tooltip';
 export { Typography } from './Typography';
+export { Toasts } from './Toasts';
