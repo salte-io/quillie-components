@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Typography } from './Typography';
+import { Typography, TypographyProps } from './Typography';
 
 export default {
   title: 'Components/Typography',
   component: Typography,
 };
 
-const Template = (args: Typography.Props) => (
+const Template = (args: TypographyProps) => (
   <Typography {...args}>
     Example
   </Typography>

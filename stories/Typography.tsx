@@ -3,14 +3,30 @@ import styles from './Typography.scss';
 import classNames from 'classnames';
 import { Theme } from './constants';
 
+export enum TypographyStyles {
+  H1 = 'h1',
+  H2 = 'h2',
+  H3 = 'h3',
+  Body = 'body',
+}
+
+export interface TypographyProps {
+  [key: string]: any;
+  children: ReactNode;
+  className: string;
+  style?: TypographyStyles;
+  theme?: Theme;
+  type?: ElementType;
+}
+
 export function Typography({
   children,
   className,
-  style = Typography.Styles.Body,
+  style = TypographyStyles.Body,
   theme = Theme.Secondary,
   type: Type = 'div',
   ...props
-}: Typography.Props): JSX.Element {
+}: TypographyProps): JSX.Element {
   return (
     <Type
       className={classNames(
@@ -24,22 +40,4 @@ export function Typography({
       {children}
     </Type>
   );
-}
-
-export namespace Typography {
-  export enum Styles {
-    H1 = 'h1',
-    H2 = 'h2',
-    H3 = 'h3',
-    Body = 'body',
-  }
-
-  export interface Props {
-    [key: string]: any;
-    children: ReactNode;
-    className: string;
-    style?: Typography.Styles;
-    theme?: Theme;
-    type?: ElementType;
-  }
 }
