@@ -22,7 +22,7 @@ export enum IconType {
 }
 
 const ICON_MAP: {
-  [key in Icons]: ReactIcons.IconType;
+  [key in IconType]: ReactIcons.IconType;
 } = {
   plus: GoPlus,
   facebook: FaFacebookF,
