@@ -12,3 +12,6 @@ const Template = (args: SpinnerProps) => (
 );
 
 export const Simple = Template.bind({});
+Simple.args = {
+  loading: true,
+};
