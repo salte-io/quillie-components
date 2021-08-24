@@ -4,7 +4,6 @@ import { Alignment, Layout } from './constants';
 
 import styles from './Dropdown.scss';
 import { Grid } from './Grid';
-export { DropdownItem } from './DropdownItem';
 
 export interface DropdownProps {
   align: Alignment;
@@ -71,3 +70,5 @@ export function Dropdown({
     </div>
   );
 }
+
+export { DropdownItem } from './DropdownItem';
