@@ -1,12 +1,29 @@
 import classNames from 'classnames';
 import React from 'react';
+import * as ReactIcons from 'react-icons';
 import { FaFacebookF, FaTwitter, FaShare, FaHeart } from 'react-icons/fa';
+import { BsFillInfoCircleFill } from 'react-icons/bs';
 import { GoPlus } from 'react-icons/go';
 import { MdDelete, MdClear } from 'react-icons/md';
 import { IoMdMegaphone, IoMdNotifications } from 'react-icons/io';
 import styles from './Icon.scss';
 
-export const ICON_MAP = {
+export enum IconType {
+  Plus = 'plus',
+  Facebook = 'facebook',
+  Twitter = 'twitter',
+  Share = 'share',
+  Delete = 'delete',
+  Heart = 'heart',
+  Clear = 'clear',
+  Feedback = 'feedback',
+  Notification = 'notification',
+  Info = 'info',
+}
+
+const ICON_MAP: {
+  [key in Icons]: ReactIcons.IconType;
+} = {
   plus: GoPlus,
   facebook: FaFacebookF,
   twitter: FaTwitter,
@@ -16,12 +33,13 @@ export const ICON_MAP = {
   clear: MdClear,
   feedback: IoMdMegaphone,
   notification: IoMdNotifications,
+  info: BsFillInfoCircleFill,
 };
 
 export interface IconProps {
   [key: string]: any;
   className?: string;
-  icon: keyof typeof ICON_MAP;
+  icon: IconType;
 }
 
 export function Icon({
