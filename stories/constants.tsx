@@ -5,6 +5,9 @@ export enum Theme {
   SecondaryAccent = 'secondary-accent',
   PrimaryTransparent = 'primary-transparent',
   SecondaryTransparent = 'secondary-transparent',
+
+  Twitter = 'twitter',
+  Facebook = 'facebook',
 }
 
 export enum Layout {
