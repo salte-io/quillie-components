@@ -1,0 +1,57 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: $font-family;
+
+  &.left .list {
+    left: 0;
+  }
+
+  &.right .list {
+    right: 0;
+  }
+
+  .list {
+    @include transition(transform, opacity);
+
+    position: absolute;
+    top: calc(100% + #{$margin});
+    overflow: hidden;
+    min-width: 200px;
+
+    background: $primary;
+    color: $primary-accent;
+    border-radius: $border-radius;
+
+    transform: translateY(-$margin);
+    opacity: 0;
+
+    > * {
+      padding: $padding;
+    }
+  }
+
+  &:not(.visible) .list {
+    pointer-events: none;
+  }
+
+  &.visible .list {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dropdownItem {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+
+  &.clickable {
+    @include hover();
+
+    cursor: pointer;
+  }
+}
