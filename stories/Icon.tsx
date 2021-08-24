@@ -49,6 +49,11 @@ export function Icon({
 }: IconProps): JSX.Element {
   const MappedIcon = ICON_MAP[icon];
 
+  if (!MappedIcon) {
+    console.error(`Unknown icon. (${icon})`);
+    return null;
+  }
+
   return (
     <MappedIcon
       className={classNames(
