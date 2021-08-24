@@ -55,3 +55,19 @@ WithIcon.args = {
   ),
   theme: Theme.Primary,
 };
+
+export const Twitter = Template.bind({});
+Twitter.args = {
+  children: (
+    <Icon icon='twitter' />
+  ),
+  theme: Theme.Twitter,
+};
+
+export const Facebook = Template.bind({});
+Facebook.args = {
+  children: (
+    <Icon icon='facebook' />
+  ),
+  theme: Theme.Secondary,
+};

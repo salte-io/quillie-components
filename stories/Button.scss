@@ -68,11 +68,11 @@ a.button {
     }
 
     &.twitter {
-      @include button($primary-accent, $twitter);
+      @include button($twitter, $secondary);
     }
 
     &.facebook {
-      @include button($primary-accent, $facebook);
+      @include button($facebook, $secondary);
     }
   }
 
