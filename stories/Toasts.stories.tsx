@@ -1,20 +1,20 @@
 import React from 'react';
 import { Button } from './Button';
 
-import { Toasts } from './Toasts';
+import { Toasts, ToastsProps, AddToastNotification } from './Toasts';
 
 export default {
   title: 'Components/Toast',
   component: Toasts,
 };
 
-const Template = (args: Toasts.Props) => (
+const Template = (args: ToastsProps) => (
   <>
     <Button
       onClick={() => {
-        Toasts.AddNotification({
+        AddToastNotification({
           message: 'This is a test',
-        })
+        });
       }}
     >
       Add Notification

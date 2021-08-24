@@ -1,21 +1,26 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Theme } from './constants';
+import { Position, Theme } from './constants';
 
 import styles from './Toasts.scss';
 
 let id = 0;
 
+export interface ToastsProps {
+  position?: Position;
+  theme?: Theme;
+}
+
 export function Toasts({
-  position = Toasts.Position.TopLeft,
+  position = Position.TopLeft,
   theme = Theme.Primary,
-}: Toasts.Props): JSX.Element {
+}: ToastsProps): JSX.Element {
   const [identifier] = useState<number>(() => id++);
   const [notifications, setNotifications] = useState<InternalNotification[]>([]);
   const [notificationIdentifier, setNotificationIdentifier] = useState<number>(0);
 
   useEffect(() => {
-    Listen(identifier, (notification: Toasts.Notification) => {
+    Listen(identifier, (notification: Notification) => {
       const internalNotification: InternalNotification = {
         id: notificationIdentifier + 1,
         duration: 5000,
@@ -69,7 +74,7 @@ const listeners: {
   [key: string]: Listener;
 } = {};
 
-type Listener = (toast: Toasts.Notification) => void;
+type Listener = (toast: Notification) => void;
 function Listen(id: number, listener: Listener): void {
   listeners[id] = listener;
 }
@@ -78,29 +83,15 @@ function Unlisten(id: number): void {
   delete listeners[id];
 }
 
-export namespace Toasts {
-  export interface Props {
-    position?: Position;
-    theme?: Theme;
+export function AddToastNotification(notification: Notification): void {
+  for (const id in listeners) {
+    listeners[id](notification);
   }
+}
 
-  export enum Position {
-    TopLeft = 'top-left',
-    TopRight = 'top-right',
-    BottomLeft = 'bottom-left',
-    BottomRight = 'bottom-right',
-  }
-
-  export interface Notification {
-    duration?: number;
-    message: string;
-  }
-
-  export function AddNotification(notification: Notification): void {
-    for (const id in listeners) {
-      listeners[id](notification);
-    }
-  }
+interface Notification {
+  duration?: number;
+  message: string;
 }
 
 interface InternalNotification {
