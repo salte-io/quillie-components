@@ -10,3 +10,6 @@ export default {
 const Template = (args: FavoriteProps) => <Favorite {...args} />;
 
 export const Simple = Template.bind({});
+Simple.args = {
+  tooltip: 'This is an example',
+}
