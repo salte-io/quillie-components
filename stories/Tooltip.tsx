@@ -54,3 +54,8 @@ export function Tooltip({
     </div>
   );
 }
+
+let identifier = 0;
+export function getTooltipIdentifier(): string {
+  return `quillie-tooltip-${identifier++}`;
+}
