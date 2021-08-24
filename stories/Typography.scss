@@ -1,0 +1,60 @@
+@use './variables' as *;
+
+@mixin typography($color) {
+  color: $color;
+}
+
+a.typography {
+  text-decoration: none;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.typography {
+  &.primary,
+  &.primary-transparent {
+    @include typography($primary);
+  }
+
+  &.primary-accent {
+    @include typography($primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include typography($secondary);
+  }
+
+  &.secondary-accent {
+    @include typography($secondary-accent);
+  }
+
+  &.h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+  }
+
+  &.h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+  }
+
+  &.h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+  }
+
+  &.body {
+    font-size: 20px;
+  }
+}
