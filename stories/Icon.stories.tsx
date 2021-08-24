@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Icon, IconProps, ICON_MAP } from './Icon';
+import { Icon, IconProps, IconType } from './Icon';
 
 export default {
   title: 'Components/Icon',
   component: Icon,
   argTypes: {
     icon: {
-      options: Object.keys(ICON_MAP),
+      options: Object.values(IconType),
       control: { type: 'select' },
     },
   },
