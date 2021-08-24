@@ -1,0 +1,63 @@
+@use './variables' as *;
+
+@mixin toast($color, $backgroundColor) {
+  > .toast {
+    color: $color;
+    background-color: $backgroundColor;
+  }
+}
+
+.toasts {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $margin;
+
+  &.top-left {
+    top: $margin;
+    left: $margin;
+  }
+
+  &.top-right {
+    top: $margin;
+    right: $margin;
+  }
+
+  &.bottom-left {
+    bottom: $margin;
+    left: $margin;
+  }
+
+  &.bottom-right {
+    bottom: $margin;
+    right: $margin;
+  }
+
+  > .toast {
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 0 $padding;
+    min-height: $min-component-size;
+    border-radius: $border-radius;
+  }
+
+  &.primary,
+  &.primary-transparent {
+    @include toast($primary-accent, $primary);
+  }
+
+  &.primary-accent {
+    @include toast($primary, $primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include toast($primary-accent, $secondary);
+  }
+
+  &.secondary-accent {
+    @include toast($primary-accent, $secondary-accent);
+  }
+}
