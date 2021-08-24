@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { Alignment, Layout } from './constants';
+import { Alignment, Layout, Theme } from './constants';
 
 import styles from './Dropdown.scss';
 import { Grid } from './Grid';
@@ -9,12 +9,14 @@ export interface DropdownProps {
   align: Alignment;
   button: ReactNode;
   children: ReactNode;
+  theme?: Theme;
 }
 
 export function Dropdown({
   align,
   button,
   children,
+  theme = Theme.Primary,
 }: DropdownProps): JSX.Element {
   const elementRef = useRef<HTMLDivElement>();
   const listenerRef = useRef<(event: MouseEvent) => void>();
@@ -50,6 +52,7 @@ export function Dropdown({
       className={classNames(
         styles.dropdown,
         styles[align],
+        styles[theme],
         visible && styles.visible,
       )}
     >

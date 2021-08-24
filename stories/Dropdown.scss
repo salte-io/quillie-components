@@ -1,6 +1,12 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+@mixin dropdown($color) {
+  .list {
+    background-color: $color;
+  }
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -14,6 +20,32 @@
     right: 0;
   }
 
+  &.primary,
+  &.primary-transparent {
+    @include dropdown($primary);
+  }
+
+  &.primary-accent {
+    @include dropdown($primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include dropdown($secondary);
+  }
+
+  &.secondary-accent {
+    @include dropdown($secondary-accent);
+  }
+
+  &.twitter {
+    @include dropdown($twitter);
+  }
+
+  &.facebook {
+    @include dropdown($facebook);
+  }
+
   .list {
     @include transition(transform, opacity);
 
@@ -25,6 +57,7 @@
     background: $primary;
     color: $primary-accent;
     border-radius: $border-radius;
+    box-shadow: $box-shadow;
 
     transform: translateY(-$margin);
     opacity: 0;
