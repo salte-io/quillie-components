@@ -6,6 +6,7 @@ import styles from './Dropdown.scss';
 import { Grid } from './Grid';
 
 export interface DropdownProps {
+  [key: string]: any;
   align: Alignment;
   button: ReactNode;
   children: ReactNode;
@@ -17,6 +18,7 @@ export function Dropdown({
   button,
   children,
   theme = Theme.Primary,
+  ...props
 }: DropdownProps): JSX.Element {
   const elementRef = useRef<HTMLDivElement>();
   const listenerRef = useRef<(event: MouseEvent) => void>();
@@ -55,6 +57,7 @@ export function Dropdown({
         styles[theme],
         visible && styles.visible,
       )}
+      {...props}
     >
       <div
         onClick={() => {
