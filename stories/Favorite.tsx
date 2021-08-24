@@ -8,12 +8,14 @@ import { Alignment } from './constants';
 
 export interface FavoriteProps {
   checked: boolean;
+  className?: string;
   onChange?: (checked: boolean) => void;
   tooltip?: string;
 }
 
 export function Favorite({
   checked,
+  className,
   onChange,
   tooltip,
 }: FavoriteProps): JSX.Element {
@@ -29,6 +31,7 @@ export function Favorite({
       className={classNames(
         styles.favorite,
         internallyChecked && styles.checked,
+        className,
       )}
       data-tooltip={tooltipId}
       onClick={(event) => {
