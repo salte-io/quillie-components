@@ -45,9 +45,9 @@ export function Button({
       )}
       layout={Layout.Horizontal}
       type={'button'}
-      onClick={() => {
+      onClick={onClick ? () => {
         if (!isDisabled) onClick()
-      }}
+      } : null}
       {...props}
     >
       <Grid
