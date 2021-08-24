@@ -7,13 +7,17 @@ import styles from './Toasts.scss';
 let id = 0;
 
 export interface ToastsProps {
+  className?: string;
   position?: Position;
   theme?: Theme;
+  offset?: number;
 }
 
 export function Toasts({
+  className,
   position = Position.TopLeft,
   theme = Theme.Primary,
+  offset = 10,
 }: ToastsProps): JSX.Element {
   const [identifier] = useState<number>(() => id++);
   const [notifications, setNotifications] = useState<InternalNotification[]>([]);
@@ -53,13 +57,22 @@ export function Toasts({
     }
   }, []);
 
+  const internalStyle = {
+    top: position === Position.TopLeft || position === Position.TopRight ? offset : null,
+    left: position === Position.TopLeft || position === Position.BottomLeft ? offset : null,
+    right: position === Position.TopRight || position === Position.BottomRight ? offset : null,
+    bottom: position === Position.BottomLeft || position === Position.BottomRight ? offset : null,
+  };
+
   return (
     <div
       className={classNames(
         styles.toasts,
         styles[position],
         styles[theme],
+        className,
       )}
+      style={internalStyle}
     >
       {notifications.map((notification, index) => (
         <div key={index} className={styles.toast}>
