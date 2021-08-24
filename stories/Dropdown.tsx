@@ -10,6 +10,7 @@ export interface DropdownProps {
   align: Alignment;
   button: ReactNode;
   children: ReactNode;
+  className?: string;
   theme?: Theme;
 }
 
@@ -17,6 +18,7 @@ export function Dropdown({
   align,
   button,
   children,
+  className,
   theme = Theme.Primary,
   ...props
 }: DropdownProps): JSX.Element {
@@ -56,6 +58,7 @@ export function Dropdown({
         styles[align],
         styles[theme],
         visible && styles.visible,
+        className,
       )}
       {...props}
     >
