@@ -13,7 +13,7 @@ export enum TypographyStyles {
 export interface TypographyProps {
   [key: string]: any;
   children: ReactNode;
-  className: string;
+  className?: string;
   style?: TypographyStyles;
   theme?: Theme;
   type?: ElementType;
