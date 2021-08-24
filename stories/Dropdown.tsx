@@ -11,6 +11,7 @@ export interface DropdownProps {
   button: ReactNode;
   children: ReactNode;
   className?: string;
+  width?: number;
   theme?: Theme;
 }
 
@@ -20,6 +21,7 @@ export function Dropdown({
   children,
   className,
   theme = Theme.Primary,
+  width = 200,
   ...props
 }: DropdownProps): JSX.Element {
   const elementRef = useRef<HTMLDivElement>();
@@ -73,6 +75,9 @@ export function Dropdown({
         className={styles.list}
         gap={0}
         layout={Layout.Vertical}
+        style={{
+          minWidth: width,
+        }}
       >
         {children}
       </Grid>
