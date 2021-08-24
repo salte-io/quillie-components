@@ -33,6 +33,14 @@ a.typography {
     @include typography($secondary-accent);
   }
 
+  &.twitter {
+    @include typography($twitter);
+  }
+
+  &.facebook {
+    @include typography($facebook);
+  }
+
   &.h1 {
     font-size: 2em;
     font-weight: bold;

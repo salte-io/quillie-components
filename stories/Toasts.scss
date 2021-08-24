@@ -41,4 +41,12 @@
   &.secondary-accent {
     @include toast($primary-accent, $secondary-accent);
   }
+
+  &.twitter {
+    @include toast($primary-accent, $twitter);
+  }
+
+  &.facebook {
+    @include toast($primary-accent, $facebook);
+  }
 }

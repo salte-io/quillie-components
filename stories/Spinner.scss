@@ -46,6 +46,14 @@
   &.secondary-accent {
     @include spinner($secondary-accent);
   }
+
+  &.twitter {
+    @include spinner($twitter);
+  }
+
+  &.facebook {
+    @include spinner($facebook);
+  }
 }
 
 @keyframes spinner {

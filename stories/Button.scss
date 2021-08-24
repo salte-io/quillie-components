@@ -66,6 +66,14 @@ a.button {
     &.secondary-transparent {
       @include button(transparent, $secondary, $primary-accent);
     }
+
+    &.twitter {
+      @include button($primary-accent, $twitter);
+    }
+
+    &.facebook {
+      @include button($primary-accent, $facebook);
+    }
   }
 
   &.disabled {

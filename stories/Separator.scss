@@ -35,4 +35,12 @@
   &.secondary-accent {
     @include separator($secondary-accent);
   }
+
+  &.twitter {
+    @include separator($twitter);
+  }
+
+  &.facebook {
+    @include separator($facebook);
+  }
 }
