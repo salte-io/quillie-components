@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Position, Theme } from './constants';
+import { AlignItems, Position, Theme } from './constants';
 
 import styles from './Toasts.scss';
 
@@ -67,9 +67,11 @@ export function Toasts({
     }
   }, []);
 
+  const isLeft = position === Position.TopLeft || position === Position.BottomLeft;
+
   const internalStyle = {
     top: position === Position.TopLeft || position === Position.TopRight ? internalOffset.y : null,
-    left: position === Position.TopLeft || position === Position.BottomLeft ? internalOffset.x : null,
+    left: isLeft ? internalOffset.x : null,
     right: position === Position.TopRight || position === Position.BottomRight ? internalOffset.x : null,
     bottom: position === Position.BottomLeft || position === Position.BottomRight ? internalOffset.y : null,
   };
@@ -80,6 +82,7 @@ export function Toasts({
         styles.toasts,
         styles[position],
         styles[theme],
+        isLeft ? styles[AlignItems.Start] : styles[AlignItems.End],
         className,
       )}
       style={internalStyle}
