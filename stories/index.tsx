@@ -13,3 +13,5 @@ export { Tooltip } from './Tooltip';
 export { Typography, TypographyStyles } from './Typography';
 export { Toasts, AddToastNotification } from './Toasts';
 export { Dropdown, DropdownItem } from './Dropdown';
+export { Modal } from './Modal';
+export { TextArea } from './TextArea';
