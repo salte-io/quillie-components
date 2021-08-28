@@ -3,7 +3,7 @@ import { Button } from './Button';
 
 import { Grid, GridProps } from './Grid';
 import { Layout } from './constants';
-import { Icon } from './Icon';
+import { Icon, IconType } from './Icon';
 
 export default {
   title: 'Components/Grid',
@@ -24,10 +24,10 @@ Vertical.args = {
   children: (
     <>
       <Button>
-        <Icon icon={IconType.delete} />
+        <Icon icon={IconType.Delete} />
       </Button>
       <Button>
-        <Icon icon={IconType.share} />
+        <Icon icon={IconType.Share} />
       </Button>
     </>
   ),
@@ -39,10 +39,10 @@ Horizontal.args = {
   children: (
     <>
       <Button>
-        <Icon icon={IconType.share}/>
+        <Icon icon={IconType.Share}/>
       </Button>
       <Button>
-        <Icon icon={IconType.delete}/>
+        <Icon icon={IconType.Delete}/>
       </Button>
     </>
   ),
