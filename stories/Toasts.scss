@@ -1,10 +1,8 @@
 @use './variables' as *;
 
 @mixin toast($color, $backgroundColor) {
-  > .toast {
-    color: $color;
-    background-color: $backgroundColor;
-  }
+  color: $color;
+  background-color: $backgroundColor;
 }
 
 .toasts {
@@ -29,31 +27,31 @@
     height: $min-component-size;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-  }
 
-  &.primary,
-  &.primary-transparent {
-    @include toast($primary-accent, $primary);
-  }
+    &.primary,
+    &.primary-transparent {
+      @include toast($primary-accent, $primary);
+    }
 
-  &.primary-accent {
-    @include toast($primary, $primary-accent);
-  }
+    &.primary-accent {
+      @include toast($primary, $primary-accent);
+    }
 
-  &.secondary,
-  &.secondary-transparent {
-    @include toast($primary-accent, $secondary);
-  }
+    &.secondary,
+    &.secondary-transparent {
+      @include toast($primary-accent, $secondary);
+    }
 
-  &.secondary-accent {
-    @include toast($primary-accent, $secondary-accent);
-  }
+    &.secondary-accent {
+      @include toast($primary-accent, $secondary-accent);
+    }
 
-  &.twitter {
-    @include toast($primary-accent, $twitter);
-  }
+    &.twitter {
+      @include toast($primary-accent, $twitter);
+    }
 
-  &.facebook {
-    @include toast($primary-accent, $facebook);
+    &.facebook {
+      @include toast($primary-accent, $facebook);
+    }
   }
 }
