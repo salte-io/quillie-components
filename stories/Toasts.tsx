@@ -14,14 +14,12 @@ interface Offset {
 export interface ToastsProps {
   className?: string;
   position?: Position;
-  theme?: Theme;
   offset?: number | Offset;
 }
 
 export function Toasts({
   className,
   position = Position.TopLeft,
-  theme = Theme.Primary,
   offset = 10,
 }: ToastsProps): JSX.Element {
   const internalOffset: Offset = typeof(offset) === 'number' ? {
@@ -38,6 +36,7 @@ export function Toasts({
       const internalNotification: InternalNotification = {
         id: notificationIdentifier + 1,
         duration: 5000,
+        theme: Theme.Primary,
         ...notification,
       };
 
@@ -81,14 +80,19 @@ export function Toasts({
       className={classNames(
         styles.toasts,
         styles[position],
-        styles[theme],
         isLeft ? styles[AlignItems.Start] : styles[AlignItems.End],
         className,
       )}
       style={internalStyle}
     >
       {notifications.map((notification, index) => (
-        <div key={index} className={styles.toast}>
+        <div
+          key={index}
+          className={classNames(
+            styles.toast,
+            styles[notification.theme],
+          )}
+        >
           {notification.message}
         </div>
       ))}
@@ -117,6 +121,7 @@ export function AddToastNotification(notification: Notification): void {
 
 interface Notification {
   duration?: number;
+  theme?: Theme;
   message: string;
 }
 
@@ -124,4 +129,5 @@ interface InternalNotification {
   id: number;
   duration: number;
   message: string;
+  theme: Theme;
 }
