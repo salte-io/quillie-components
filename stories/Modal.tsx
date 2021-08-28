@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { Inherit, JustifyContent, Layout, Theme } from './constants';
 
 import { Button } from './Button';
@@ -35,48 +35,26 @@ export function Modal({
   size = ModalSize.Small,
   theme = Theme.Secondary,
 }: ModalProps): JSX.Element {
-  const elementRef = useRef<HTMLDivElement>();
-  const listenerRef = useRef<(event: MouseEvent) => void>();
   const [internallyOpened, setInternallyOpened] = useState<boolean>(opened);
 
   useEffect(() => {
     setInternallyOpened(opened);
   }, [opened]);
 
-  useEffect(() => {
-    if (internallyOpened) {
-      listenerRef.current = (event: MouseEvent): void => {
-        const path = event.composedPath();
-        if (!path.includes(elementRef.current)) {
-          setInternallyOpened(false);
-          onCancel();
-        }
-      };
-
-      window.addEventListener('click', listenerRef.current, {
-        passive: true,
-      });
-    } else if (listenerRef.current) {
-      window.removeEventListener('click', listenerRef.current);
-      listenerRef.current = null;
-    }
-
-    return () => {
-      if (listenerRef.current) {
-        window.removeEventListener('click', listenerRef.current);
-      }
-    }
-  }, [internallyOpened]);
-
   return (
     <div
-      ref={elementRef}
       className={classNames(
         styles.modalContainer,
         styles[size],
         styles[theme],
         internallyOpened && styles.opened,
       )}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          setInternallyOpened(false);
+          onCancel();
+        }
+      }}
     >
       <Grid className={styles.modal} layout={Layout.Vertical}>
         <Button

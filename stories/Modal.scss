@@ -10,12 +10,14 @@
 
 .modalContainer {
   @include fixed();
+  @include transition(background-color);
 
   display: flex;
   align-items: flex-start;
   justify-content: center;
   font-family: $font-family;
   pointer-events: none;
+  background-color: transparent;
 
   > .modal {
     @include transition(transform, opacity);
@@ -29,8 +31,12 @@
     opacity: 0;
   }
 
-  &.opened > .modal {
+  &.opened {
     pointer-events: all;
+    background-color: $backdrop;
+  }
+
+  &.opened > .modal {
     transform: translateY(0);
     opacity: 1;
   }
