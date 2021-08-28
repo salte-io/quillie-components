@@ -12,7 +12,7 @@
   @include fixed();
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   font-family: $font-family;
   pointer-events: none;
@@ -23,6 +23,7 @@
     padding: $padding;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    margin: 20% $margin 0 $margin;
 
     transform: translateY(-$margin);
     opacity: 0;
