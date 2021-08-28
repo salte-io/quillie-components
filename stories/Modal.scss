@@ -12,6 +12,7 @@
   @include fixed();
   @include transition(background-color);
 
+  z-index: 9999;
   display: flex;
   align-items: flex-start;
   justify-content: center;
