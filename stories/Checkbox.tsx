@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import styles from './Checkbox.scss';
+import { noop } from './utils/noop';
 import { Checked } from './constants';
 
 export interface CheckboxProps {
@@ -26,7 +27,7 @@ export function Checkbox({
   checked = false,
   className,
   disabled = false,
-  onChange,
+  onChange = noop,
 }: CheckboxProps): JSX.Element {
   const [internallyChecked, setInternallyChecked] = useState<Checked>(Checked.Unchecked);
 
@@ -44,7 +45,7 @@ export function Checkbox({
 
     const isChecked = [Checked.Unchecked, Checked.Indeterminate].includes(internallyChecked);
     setInternallyChecked(isChecked ? Checked.Checked : Checked.Unchecked);
-    if (onChange) onChange(isChecked);
+    onChange(isChecked);
   }
 
   return (

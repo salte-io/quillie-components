@@ -24,10 +24,10 @@ Vertical.args = {
   children: (
     <>
       <Button>
-        <Icon icon='delete' />
+        <Icon icon={IconType.delete} />
       </Button>
       <Button>
-        <Icon icon='share' />
+        <Icon icon={IconType.share} />
       </Button>
     </>
   ),
@@ -39,10 +39,10 @@ Horizontal.args = {
   children: (
     <>
       <Button>
-        <Icon icon='share'/>
+        <Icon icon={IconType.share}/>
       </Button>
       <Button>
-        <Icon icon='delete'/>
+        <Icon icon={IconType.delete}/>
       </Button>
     </>
   ),

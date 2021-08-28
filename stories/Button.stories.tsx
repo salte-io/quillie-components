@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, ButtonProps } from './Button';
 import { Theme } from './constants';
-import { Icon } from './Icon';
+import { Icon, IconType } from './Icon';
 
 export default {
   title: 'Components/Button',
@@ -32,10 +32,10 @@ Secondary.args = {
   theme: Theme.Secondary,
 };
 
-export const Accent = Template.bind({});
-Accent.args = {
+export const PrimaryAccent = Template.bind({});
+PrimaryAccent.args = {
   children: 'Button',
-  theme: Theme.Accent,
+  theme: Theme.PrimaryAccent,
 };
 
 export const Inverse = Template.bind({});
@@ -49,7 +49,7 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   children: (
     <>
-      <Icon icon='plus'/>
+      <Icon icon={IconType.Plus} />
       <div>Test with lots of text</div>
     </>
   ),
@@ -59,7 +59,7 @@ WithIcon.args = {
 export const Twitter = Template.bind({});
 Twitter.args = {
   children: (
-    <Icon icon='twitter' />
+    <Icon icon={IconType.Twitter} />
   ),
   theme: Theme.Twitter,
 };
@@ -67,7 +67,7 @@ Twitter.args = {
 export const Facebook = Template.bind({});
 Facebook.args = {
   children: (
-    <Icon icon='facebook' />
+    <Icon icon={IconType.Facebook} />
   ),
   theme: Theme.Secondary,
 };

@@ -9,7 +9,13 @@ export default {
 
 const Template = (args: FavoriteProps) => <Favorite {...args} />;
 
-export const Simple = Template.bind({});
-Simple.args = {
+export const Unchecked = Template.bind({});
+Unchecked.args = {
   tooltip: 'This is an example',
-}
+};
+
+export const Checked = Template.bind({});
+Checked.args = {
+  checked: true,
+  tooltip: 'This is an example',
+};

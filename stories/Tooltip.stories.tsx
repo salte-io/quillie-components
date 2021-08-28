@@ -12,7 +12,7 @@ export default {
 const Template = (args: TooltipProps) => (
   <>
     <Button data-tooltip='add'>
-      <Icon icon='plus' />
+      <Icon icon={IconType.plus} />
       <Tooltip id='add' {...args}>
         Create a List
       </Tooltip>

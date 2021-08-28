@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './Button';
 
 import { Actions, ActionsProps } from './Actions';
-import { Icon } from './Icon';
+import { Icon, IconType } from './Icon';
 
 export default {
   title: 'Components/Actions',
@@ -23,16 +23,16 @@ Simple.args = {
   primary: (
     <>
       <Button>
-        <Icon icon='heart' />
+        <Icon icon={IconType.Heart} />
       </Button>
       <Button>
-        <Icon icon='delete' />
+        <Icon icon={IconType.Delete} />
       </Button>
     </>
   ),
   secondary: (
     <Button>
-      <Icon icon='share' />
+      <Icon icon={IconType.Share} />
     </Button>
   ),
 };
@@ -42,10 +42,10 @@ PrimaryOnly.args = {
   primary: (
     <>
       <Button>
-        <Icon icon='heart' />
+        <Icon icon={IconType.Heart} />
       </Button>
       <Button>
-        <Icon icon='delete' />
+        <Icon icon={IconType.Delete} />
       </Button>
     </>
   ),
@@ -55,7 +55,7 @@ export const SecondaryOnly = Template.bind({});
 SecondaryOnly.args = {
   secondary: (
     <Button>
-      <Icon icon='share' />
+      <Icon icon={IconType.Share} />
     </Button>
   ),
 };
