@@ -19,6 +19,8 @@ export enum ModalSize {
 export interface ModalProps {
   children: ReactNode;
   title?: ReactNode;
+  isSubmitDisabled?: boolean;
+  isSubmitLoading?: boolean;
   onSubmit?: () => void;
   onCancel?: () => void;
   opened: boolean;
@@ -29,6 +31,8 @@ export interface ModalProps {
 export function Modal({
   children,
   title,
+  isSubmitDisabled = false,
+  isSubmitLoading = false,
   onSubmit,
   onCancel = noop,
   opened = false,
@@ -87,6 +91,7 @@ export function Modal({
           layout={Layout.Horizontal}
         >
           <Button
+            disabled={isSubmitLoading}
             theme={Theme.Secondary}
             onClick={() => {
               setInternallyOpened(false);
@@ -97,6 +102,8 @@ export function Modal({
           </Button>
           {onSubmit && (
             <Button
+              disabled={isSubmitDisabled}
+              loading={isSubmitLoading}
               onClick={() => {
                 setInternallyOpened(false);
                 onSubmit();
