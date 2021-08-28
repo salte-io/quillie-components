@@ -21,7 +21,7 @@ export interface ModalProps {
   title?: ReactNode;
   isSubmitDisabled?: boolean;
   isSubmitLoading?: boolean;
-  onSubmit?: () => void;
+  onSubmit?: () => void | Promise<void>;
   onCancel?: () => void;
   opened: boolean;
   size?: ModalSize;
@@ -104,9 +104,10 @@ export function Modal({
             <Button
               disabled={isSubmitDisabled}
               loading={isSubmitLoading}
-              onClick={() => {
+              onClick={async () => {
+                await onSubmit();
+
                 setInternallyOpened(false);
-                onSubmit();
               }}
             >
               Submit
