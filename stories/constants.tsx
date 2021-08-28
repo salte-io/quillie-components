@@ -1,3 +1,5 @@
+export const Inherit = 'inherit';
+
 export enum Theme {
   Primary = 'primary',
   Secondary = 'secondary',

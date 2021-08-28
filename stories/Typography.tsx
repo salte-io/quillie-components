@@ -1,7 +1,7 @@
 import React, { ElementType, ReactNode } from 'react';
 import styles from './Typography.scss';
 import classNames from 'classnames';
-import { Theme } from './constants';
+import { Inherit, Theme } from './constants';
 
 export enum TypographyStyles {
   H1 = 'h1',
@@ -16,7 +16,7 @@ export interface TypographyProps {
   children: ReactNode;
   className?: string;
   style?: TypographyStyles;
-  theme?: Theme;
+  theme?: Theme | typeof Inherit;
   type?: ElementType;
 }
 

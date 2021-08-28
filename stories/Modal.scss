@@ -1,0 +1,72 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+@mixin modal($color, $background-color) {
+  > .modal {
+    background-color: $background-color;
+    color: $color;
+  }
+}
+
+.modalContainer {
+  @include fixed();
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  pointer-events: none;
+
+  > .modal {
+    @include transition(transform, opacity);
+
+    padding: $padding;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    transform: translateY(-$margin);
+    opacity: 0;
+  }
+
+  &.opened > .modal {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .cancel {
+    position: absolute;
+    top: $padding;
+    right: $padding;
+  }
+
+  &.small > .modal {
+    width: 500px;
+  }
+
+  &.primary,
+  &.primary-transparent {
+    @include modal($secondary, $primary);
+  }
+
+  &.primary-accent {
+    @include modal($primary, $primary-accent);
+  }
+
+  &.secondary,
+  &.secondary-transparent {
+    @include modal($primary-accent, $secondary);
+  }
+
+  &.secondary-accent {
+    @include modal($primary-accent, $secondary-accent);
+  }
+
+  &.twitter {
+    @include modal($twitter, $secondary);
+  }
+
+  &.facebook {
+    @include modal($facebook, $secondary);
+  }
+}

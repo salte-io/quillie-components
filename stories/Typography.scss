@@ -41,6 +41,10 @@ a.typography {
     @include typography($facebook);
   }
 
+  &.inherit {
+    @include typography(inherit);
+  }
+
   &.h1 {
     font-size: 2em;
     font-weight: bold;
