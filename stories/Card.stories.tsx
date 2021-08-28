@@ -5,7 +5,7 @@ import { Button } from './Button';
 import { Card, CardProps } from './Card';
 import { Checkbox } from './Checkbox';
 import { Layout } from './constants';
-import { Icon } from './Icon';
+import { Icon, IconType } from './Icon';
 import { Input } from './Input';
 
 export default {
@@ -39,13 +39,13 @@ Vertical.args = {
         primary={(
           <>
             <Button inverse>
-              <Icon icon='delete' />
+              <Icon icon={IconType.Delete} />
             </Button>
           </>
         )}
         secondary={(
           <Button inverse>
-            <Icon icon='share' />
+            <Icon icon={IconType.Share} />
           </Button>
         )}
       />
@@ -59,10 +59,10 @@ Horizontal.args = {
   children: (
     <>
       <Button inverse>
-        <Icon icon='share'/>
+        <Icon icon={IconType.Share}/>
       </Button>
       <Button inverse>
-        <Icon icon='delete'/>
+        <Icon icon={IconType.Delete}/>
       </Button>
     </>
   ),

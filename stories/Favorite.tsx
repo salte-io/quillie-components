@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Icon } from './Icon';
+import classNames from 'classnames';
+import { Icon, IconType } from './Icon';
 import { Tooltip, getTooltipIdentifier } from './Tooltip';
 
 import styles from './Favorite.scss';
-import classNames from 'classnames';
+import { noop } from './utils/noop';
 import { Alignment } from './constants';
 
 export interface FavoriteProps {
@@ -16,9 +17,10 @@ export interface FavoriteProps {
 export function Favorite({
   checked,
   className,
-  onChange,
+  onChange = noop,
   tooltip,
 }: FavoriteProps): JSX.Element {
+  const [hasBeenClicked, setHasBeenClicked] = useState<boolean>(false);
   const [tooltipId] = useState<string>(() => getTooltipIdentifier())
   const [internallyChecked, setInternallyChecked] = useState<boolean>();
 
@@ -40,7 +42,8 @@ export function Favorite({
 
         const updatedChecked = !internallyChecked;
         setInternallyChecked(updatedChecked);
-        if (onChange) onChange(updatedChecked);
+        onChange(updatedChecked);
+        setHasBeenClicked(true);
       }}
     >
       {tooltip && (
@@ -52,13 +55,18 @@ export function Favorite({
         </Tooltip>
       )}
       <Icon
-        icon={'heart'}
+        icon={IconType.Heart}
       />
       <Icon
         className={styles.pseudoHover}
-        icon={'heart'}
+        icon={IconType.Heart}
       />
-      <div className={styles.fanfare} />
+      <div
+        className={styles.fanfare}
+        style={{
+          animationDuration: hasBeenClicked ? '1s' : '0s',
+        }}
+      />
     </div>
   );
 }

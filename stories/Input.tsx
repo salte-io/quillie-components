@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { Keys, UpdateOn } from './constants';
+import { noop } from './utils/noop';
 import styles from './Input.scss';
 
 export interface InputProps {
@@ -11,7 +12,7 @@ export interface InputProps {
   /**
    * Invoked when the checkbox checked value is modified internally.
    */
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   submitKeys?: Keys[];
 
   updateOn?: UpdateOn;
@@ -21,7 +22,7 @@ export function Input({
   className,
   value,
   placeholder,
-  onChange,
+  onChange = noop,
   submitKeys = [Keys.Enter],
   updateOn = UpdateOn.Blur,
 }: InputProps): JSX.Element {
