@@ -3,13 +3,13 @@
 
 .tooltip {
   @include transition(opacity);
+  @include interaction(false);
 
   display: inline-flex;
   align-items: center;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  pointer-events: none;
   white-space: nowrap;
   padding: 0 $padding;
   height: $min-component-size;

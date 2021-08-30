@@ -1,5 +1,15 @@
 @use './variables' as *;
 
+@mixin interaction($enabled) {
+  @if $enabled {
+    pointer-events: all;
+    touch-action: auto;
+  } @else {
+    pointer-events: none;
+    touch-action: none;
+  }
+}
+
 @function fallback($values...) {
   @each $value in $values {
     @if $value != null {
@@ -35,9 +45,9 @@
   &::before {
     @include absolute(0);
     @include transition(opacity);
+    @include interaction(false);
 
     border-radius: inherit;
-    pointer-events: none;
     content: '';
     background-color: $hover;
     opacity: 0;
@@ -50,9 +60,10 @@
 }
 
 @mixin disabled() {
+  @include interaction(false);
+
   color: $primary-accent;
   background-color: $disabled;
-  pointer-events: none;
 }
 
 @mixin transition($properties...) {

@@ -67,7 +67,7 @@
   }
 
   &:not(.visible) .list {
-    pointer-events: none;
+    @include interaction(false);
   }
 
   &.visible .list {
