@@ -10,6 +10,7 @@
 
 .spinner {
   @include loading(true);
+  @include interaction(false);
 
   &.fit {
     @include absolute();
@@ -18,7 +19,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 
   &:after {
     content: '';

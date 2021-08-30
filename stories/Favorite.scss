@@ -17,14 +17,14 @@
   }
 
   > * {
-    pointer-events: none;
+    @include interaction(false);
   }
 
   .pseudoHover {
     @include absolute();
     @include transition(color);
+    @include interaction(false);
 
-    pointer-events: none;
     color: transparent;
   }
 
@@ -33,11 +33,12 @@
   }
 
   .fanfare {
+    @include interaction(false);
+
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    pointer-events: none;
 
     width: 100px;
     height: 100px;
