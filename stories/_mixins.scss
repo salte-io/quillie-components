@@ -40,30 +40,32 @@
 }
 
 @mixin hover() {
-  cursor: pointer;
+  &:not(.disabled) {
+    cursor: pointer;
 
-  &::before {
-    @include absolute(0);
-    @include transition(opacity);
-    @include interaction(false);
+    &::before {
+      @include absolute(0);
+      @include transition(opacity);
+      @include interaction(false);
 
-    border-radius: inherit;
-    content: '';
-    background-color: $hover;
-    opacity: 0;
-  }
+      border-radius: inherit;
+      content: '';
+      background-color: $hover;
+      opacity: 0;
+    }
 
-  &:hover::before,
-  &:focus::before {
-    opacity: 1;
+    &:hover::before,
+    &:focus::before {
+      opacity: 1;
+    }
   }
 }
 
-@mixin disabled() {
+@mixin disabled($color: $primary-accent, $background-color: $disabled) {
   @include interaction(false);
 
-  color: $primary-accent;
-  background-color: $disabled;
+  color: $color;
+  background-color: $background-color;
 }
 
 @mixin transition($properties...) {

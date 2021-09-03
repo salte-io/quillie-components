@@ -1,22 +1,44 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+@mixin checkbox($color, $background-color, $disabled-color) {
+  background-color: $background-color;
+
+  .check {
+    background-color: $color;
+  }
+
+  &.disabled {
+    @include disabled($color, $disabled-color);
+  }
+}
+
 .checkbox {
   @include hover();
 
   position: relative;
   width: $min-component-size;
   height: $min-component-size;
-  background-color: $secondary-accent;
   border-radius: $border-radius;
   cursor: pointer;
   overflow: hidden;
+
+  &.secondary {
+    @include checkbox($primary-accent, $secondary, $disabled);
+  }
+
+  &.primary,
+  &.primary-accent,
+  &.secondary-accent,
+  &.twitter,
+  &.facebook {
+    @include checkbox($primary-accent, $secondary-accent, $disabled);
+  }
 
   .check {
     @include absolute(4px);
     @include transition(transform, border-radius);
 
-    background-color: $primary-accent;
     border-radius: inherit;
     transform: scale(0);
   }
@@ -28,9 +50,5 @@
 
   &.checked .check {
     transform: scale(1);
-  }
-
-  &.disabled {
-    @include disabled();
   }
 }
