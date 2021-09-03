@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { Keys, UpdateOn } from './constants';
+import { Keys, Theme, UpdateOn } from './constants';
 import { noop } from './utils/noop';
 import styles from './Input.scss';
 
 export interface InputProps {
   className?: string,
+  disabled?: boolean;
   value?: string;
   placeholder?: string;
 
@@ -14,15 +15,18 @@ export interface InputProps {
    */
   onChange?: (value: string) => void;
   submitKeys?: Keys[];
+  theme?: Theme;
 
   updateOn?: UpdateOn;
 }
 
 export function Input({
   className,
+  disabled = false,
   value,
   placeholder,
   onChange = noop,
+  theme = Theme.SecondaryAccent,
   submitKeys = [Keys.Enter],
   updateOn = UpdateOn.Blur,
 }: InputProps): JSX.Element {
@@ -36,6 +40,8 @@ export function Input({
     <div
       className={classNames(
         styles.input,
+        styles[theme],
+        disabled && styles.disabled,
         className,
       )}
     >

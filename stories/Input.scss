@@ -1,6 +1,24 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+@mixin input($color, $background-color, $disabled-color) {
+  background-color: $background-color;
+  color: $color;
+
+  input::placeholder {
+    color: $disabled-color;
+    text-shadow: 1px 1px $secondary;
+  }
+
+  &.disabled {
+    background-color: $disabled-color;
+
+    input::placeholder {
+      color: $color;
+    }
+  }
+}
+
 .input {
   @include hover();
 
@@ -10,8 +28,26 @@
 
   border-radius: $border-radius;
   height: $min-component-size;
-  background-color: $secondary-accent;
-  color: $primary-accent;
+
+  &.secondary {
+    @include input($primary-accent, $secondary, $disabled);
+  }
+
+  &.primary,
+  &.primary-accent,
+  &.secondary-accent,
+  &.twitter,
+  &.facebook {
+    @include input($primary-accent, $secondary-accent, $disabled);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    input {
+      pointer-events: none;
+    }
+  }
 
   input {
     border: none;
@@ -25,9 +61,5 @@
     font-size: $font-size;
 
     padding: 0 $border-radius;
-
-    &::placeholder {
-      color: $disabled;
-    }
   }
 }
