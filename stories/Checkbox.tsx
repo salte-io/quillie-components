@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 import styles from './Checkbox.scss';
 import { noop } from './utils/noop';
-import { Checked } from './constants';
+import { Checked, Theme } from './constants';
 
 export interface CheckboxProps {
   /**
@@ -17,6 +17,8 @@ export interface CheckboxProps {
    */
   disabled?: boolean;
 
+  theme?: Theme,
+
   /**
    * Invoked when the checkbox checked value is modified internally.
    */
@@ -27,6 +29,7 @@ export function Checkbox({
   checked = false,
   className,
   disabled = false,
+  theme = Theme.SecondaryAccent,
   onChange = noop,
 }: CheckboxProps): JSX.Element {
   const [internallyChecked, setInternallyChecked] = useState<Checked>(Checked.Unchecked);
@@ -53,6 +56,7 @@ export function Checkbox({
       className={classNames(
         styles.checkbox,
         styles[internallyChecked],
+        styles[theme],
         disabled && styles.disabled,
         className,
       )}
